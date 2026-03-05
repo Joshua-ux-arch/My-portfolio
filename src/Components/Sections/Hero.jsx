@@ -1,7 +1,7 @@
 import { ChevronDown,Star } from 'lucide-react'
 import {SiReact,SiNextdotjs,SiTailwindcss,SiNodedotjs,SiMongodb} from 'react-icons/si'
 import { PERSONAL_INFO, STATS } from '../../utils/constants'
-import { scrollToSection } from '../../hooks/useScrollspy'
+import { scrollToSection } from '../../hooks/useScrollSpy'
 import RadialGradientBackground from '../backgrounds/radialGradientBackground'
 import FadeIn from '../animations/fadeIn'
 
