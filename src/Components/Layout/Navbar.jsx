@@ -1,13 +1,13 @@
 import React,{useState,useEffect} from 'react'
 import {Code,Menu,X} from 'lucide-react'
 import {NAV_LINKS,PERSONAL_INFO} from '../../utils/constants'
-import {useScrollSpy, scrollToSection} from '../../hooks/useScrollspy'
+import {useScrollspy, scrollToSection} from '../../hooks/useScrollspy'
 
 const Navbar = () => {
 
     const [_isMenuOpen,setIsMenuOpen] = useState(false)
     const [isScrolled,setIsScrolled] = useState(false)
-    const activeSection = useScrollSpy(NAV_LINKS.map(link=>link.id));
+    const activeSection = useScrollspy(NAV_LINKS.map(link=>link.id));
 
     useEffect(()=>{
         const handleScroll = () => {
