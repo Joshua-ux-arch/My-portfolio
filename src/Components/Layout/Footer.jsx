@@ -1,7 +1,7 @@
 import React from 'react';
 import { Github, Linkedin, Twitter, Instagram, Mail, MapPin, Heart } from 'lucide-react';
 import { NAV_LINKS, PERSONAL_INFO, SOCIAL_LINKS } from '../../utils/constants';
-import FadeIn from '../animations/fadeIn.js'; // ✅ make sure casing matches your file exactly
+import FadeIn from '../animations/fadeIn.jsx'; // ✅ make sure casing matches your file exactly
 import { scrollToSection } from '../../hooks/useScrollSpy.js'; // ✅ fixed import
 
 const Footer = () => {
