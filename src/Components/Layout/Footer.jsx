@@ -2,7 +2,7 @@ import React from 'react'
 import { Github, Linkedin, Twitter, Instagram, Mail, MapPin, Heart } from 'lucide-react'
 import { NAV_LINKS, PERSONAL_INFO, SOCIAL_LINKS } from '../../utils/constants'
 import FadeIn from '../animations/FadeIn'
-import { scrollToSection } from '../../hooks/useScrollspy'
+import { scrollToSection } from '../../hooks/useScrollSpy.js'
 
 const Footer = () => {
 
