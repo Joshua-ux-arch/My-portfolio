@@ -1,12 +1,11 @@
-import React,{useState,useEffect} from 'react'
-import {Code,Menu,X} from 'lucide-react'
-import {NAV_LINKS,PERSONAL_INFO} from '../../utils/constants'
-import {useScrollspy, scrollToSection} from '../../hooks/useScrollspy'
+import React,{useState,useEffect} from 'react';
+import {Code,Menu,X} from 'lucide-react';
+import {NAV_LINKS,PERSONAL_INFO} from '../../utils/constants';
+import {useScrollspy, scrollToSection} from '../../hooks/useScrollSpy.js'; // ✅ fixed
 
 const Navbar = () => {
-
-    const [_isMenuOpen,setIsMenuOpen] = useState(false)
-    const [isScrolled,setIsScrolled] = useState(false)
+    const [_isMenuOpen,setIsMenuOpen] = useState(false);
+    const [isScrolled,setIsScrolled] = useState(false);
     const activeSection = useScrollspy(NAV_LINKS.map(link=>link.id));
 
     useEffect(()=>{
@@ -24,7 +23,6 @@ const Navbar = () => {
         setIsMenuOpen(false);
     };
 
- 
     return (
         <nav className={`fixed top-0 left-0 right-0 z-1000 w-full py-4 transition-all duration-300 ${isScrolled ? 'bg-black/30 backdrop-blur-lg ' : 'bg-transparent'}`}
             style={{transform:'translate3d(0,0,0)'}}
@@ -80,29 +78,27 @@ const Navbar = () => {
             </div>
             {/*Mobile Menu*/}
             <div
-                className={`md:hidden transition:all duration:300 overflow:hidden ${_isMenuOpen ? 'max-h-96 opacity:100' : 'max-h-0 opacity-0'
-                    }`}
-
-                > 
-            <div  className="bg-black/95 background-blur-lg border-t border-white/10 px-5 py-6 space-y-3" >
-                {NAV_LINKS.map(link=>(
-                    <button
-                        key={link.id}
-                        onClick={()=>handleNavClick(link.id)}
-                        className={`block w-full text-left px-4 py-3 rounded-lg font-medium transition-all duration-300 ${activeSection === link.id 
-                            ? 'bg-white/10 text-white' 
-                            : 'text-white/70 hover:text-white/10 hover:bg-white/5'}`}
-                    >
-                        {link.label}
-                    </button>
-                ))}
-                <button 
-                    onClick={()=> handleNavClick('contact')}
-                     className='w-full px-7 py-3.5 bg-white text-[#212121] font-medium text-base rounded-[17px] border border-white hover:bg-white/90 transition-all duration-300 mt-2'
+                className={`md:hidden transition-all duration-300 overflow-hidden ${_isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
+            > 
+                <div className="bg-black/95 backdrop-blur-lg border-t border-white/10 px-5 py-6 space-y-3">
+                    {NAV_LINKS.map(link=>(
+                        <button
+                            key={link.id}
+                            onClick={()=>handleNavClick(link.id)}
+                            className={`block w-full text-left px-4 py-3 rounded-lg font-medium transition-all duration-300 ${activeSection === link.id 
+                                ? 'bg-white/10 text-white' 
+                                : 'text-white/70 hover:text-white/10 hover:bg-white/5'}`}
+                        >
+                            {link.label}
+                        </button>
+                    ))}
+                    <button 
+                        onClick={()=> handleNavClick('contact')}
+                        className='w-full px-7 py-3.5 bg-white text-[#212121] font-medium text-base rounded-[17px] border border-white hover:bg-white/90 transition-all duration-300 mt-2'
                     >
                         Hire me
                     </button>
-            </div>
+                </div>
             </div>
         </nav>
     );
